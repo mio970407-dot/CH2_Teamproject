@@ -7,7 +7,7 @@ using namespace std;
 class ACharacter
 {
 public:
-    ACharacter();
+    ACharacter(string NewName, int NewHp, int NewAtk);
     ~ACharacter();
 
 protected:
@@ -18,5 +18,6 @@ protected:
 public:
     void Attack();
     void TakeDamage(int DamageAmount);
-
+    int GetHp();
+    bool IsDead();
 };
