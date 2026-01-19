@@ -16,7 +16,7 @@ protected:
     int Atk;
 
 public:
-    void Attack();
+    void Attack(ACharacter*Target);
     void TakeDamage(int DamageAmount);
     int GetHp();
     bool IsDead();

@@ -3,7 +3,7 @@
 
 int main()
 {
-    ACharacter* Player = new ACharacter("작은 다윗", 200, 60);
+    ACharacter* Player = new ACharacter("작은 다윗", 100, 60);
     ACharacter* Monster = new ACharacter("거대한 골리앗", 300, 10);
 
     cout << "===  데스매치 시작!  ===" << endl;
@@ -11,8 +11,7 @@ int main()
 
     while (!Player->IsDead() && !Monster->IsDead())
     {
-        Player->Attack();
-        Monster->TakeDamage(60);
+        Player->Attack(Monster);
 
         if (Monster->IsDead())
         {
@@ -22,8 +21,7 @@ int main()
 
         Sleep(500);
 
-        Monster->Attack();
-        Player->TakeDamage(10);
+        Monster->Attack(Player);
 
         if (Player->IsDead())
         {

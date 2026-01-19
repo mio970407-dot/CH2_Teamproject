@@ -15,9 +15,10 @@ ACharacter::~ACharacter()
 }
 
 
-void ACharacter::Attack()
+void ACharacter::Attack(ACharacter*Target)
 {
     cout << Name << "이 공격합니다! (공격력 : " << Atk << ")" << endl;
+    Target->TakeDamage(Atk);
 }
 
 void ACharacter::TakeDamage(int DamageAmount)
