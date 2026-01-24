@@ -36,6 +36,9 @@ int main()
     delete Monster;
     return 0;
 }
+
+//주석 제거 정리합시다.
+
 //int main()
 //{
 //    ACharacter* MyChar = new ACharacter();
