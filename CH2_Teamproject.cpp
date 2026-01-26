@@ -1,6 +1,11 @@
 ﻿#include "Character/Character.h"
 #include <Windows.h>
 
+// Monster는 상속받고, 멤버 변수나 함수 추가 없이 구현
+// Player는 상속받고 나서,
+// 멤버 변수: Level, Exp
+// 멤버 함수: UseItem(), LevelUp() 함수 제작, 빈 함수... 구현없음. 
+
 int main()
 {
     ACharacter* Player = new ACharacter("작은 다윗", {100, 60, 10, 10});
