@@ -7,14 +7,15 @@ using namespace std;
 class ACharacter
 {
 public:
-    //추가 스탯은 어디에
-    ACharacter(string NewName, int NewHp, int NewAtk);
+    ACharacter(string NewName, int NewHp, int NewAtk, int NewDef, int NewCritical);
     ~ACharacter();
 
 protected:
     string Name;
     int Hp;
     int Atk;
+    int Def;
+    int Critical;
 
 public:
     //* 이후 띄어쓰기
