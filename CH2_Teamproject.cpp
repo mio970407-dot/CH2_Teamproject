@@ -3,8 +3,8 @@
 
 int main()
 {
-    ACharacter* Player = new ACharacter("작은 다윗", 100, 60, 10, 10);
-    ACharacter* Monster = new ACharacter("거대한 골리앗", 300, 10, 10, 10);
+    ACharacter* Player = new ACharacter("작은 다윗", {100, 60, 10, 10});
+    ACharacter* Monster = new ACharacter("거대한 골리앗", {300, 10, 10, 10});
 
     cout << "===  데스매치 시작!  ===" << endl;
     Sleep(1000);
@@ -15,7 +15,7 @@ int main()
 
         if (Monster->IsDead())
         {
-            cout << "몬스터가 쓰러졌습니다! 승리!" << endl;
+            cout << "적이 쓰러졌습니다! 승리!" << endl;
             break;
         }
 
@@ -36,18 +36,3 @@ int main()
     delete Monster;
     return 0;
 }
-
-//주석 제거 정리합시다.
-
-//int main()
-//{
-//    ACharacter* MyChar = new ACharacter();
-//
-//    MyChar->Attack();
-//
-//    MyChar->TakeDamage(30);
-//
-//    delete MyChar;
-//
-//    return 0;
-//}
