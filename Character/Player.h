@@ -1,11 +1,14 @@
 ﻿#pragma once
 #include <string>
-#include "Character/Character.h"
+#include "Character.h"
 
 using namespace std;
 
-class Player : public ACharacter
+class APlayer : public ACharacter
 {
+public:
+	APlayer(const string& NewName, const FUnitStat& NewStat);
+	
 protected:
 	int Level;
 	int Exp;
