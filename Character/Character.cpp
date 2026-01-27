@@ -42,7 +42,6 @@ void ACharacter::Attack(ACharacter* Target)
 void ACharacter::TakeDamage(int DamageAmount)
 {
 	DamageAmount = DamageAmount - Stat.Def;
-	//max() , 파라미터로 들어온 값중에 가장 큰 값을 반환.
 	DamageAmount = std::max(DamageAmount, 0);
 	
 	Stat.Hp -= DamageAmount;

@@ -16,7 +16,7 @@ class ACharacter
 {
 public:
 	ACharacter(const string& NewName, const FUnitStat& NewStat);
-	~ACharacter();
+    ~ACharacter();
 
 protected:
 	string Name;

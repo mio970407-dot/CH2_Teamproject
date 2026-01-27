@@ -1,4 +1,6 @@
 ﻿#include "Character/Character.h"
+#include "Monster.h"
+#include "Player.h"
 #include <Windows.h>
 
 // Monster는 상속받고, 멤버 변수나 함수 추가 없이 구현
@@ -8,8 +10,8 @@
 
 int main()
 {
-    ACharacter* Player = new ACharacter("작은 다윗", {100, 60, 10, 10});
-    ACharacter* Monster = new ACharacter("거대한 골리앗", {300, 10, 10, 10});
+    new Player("작은 다윗", { 100, 60, 10, 10 });
+    new Monster("거대한 골리앗", { 300, 10, 10, 10 });
 
     cout << "===  데스매치 시작!  ===" << endl;
     Sleep(1000);
