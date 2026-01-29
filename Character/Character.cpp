@@ -33,7 +33,7 @@ void ACharacter::Attack(ACharacter* Target)
 	}
 	else
 	{
-		cout << Name << "이 공격합니다! (공격력 : " << NewAttack << ")" << endl;
+		cout << Name << "의 공격! (공격력 : " << NewAttack << ")" << endl;
 	}
 
 	Target->TakeDamage(NewAttack);
@@ -46,5 +46,5 @@ void ACharacter::TakeDamage(int DamageAmount)
 	
 	Stat.Hp -= DamageAmount;
 	cout << Name << "이 " << DamageAmount << "의 피해를 입었습니다." << endl;
-	cout << "   ->" << Name << "의 남은 체력 : " << Stat.Hp << endl;
+	cout << "   ->" << Name << "의 남은 체력 : " << Stat.Hp << endl << endl;
 }

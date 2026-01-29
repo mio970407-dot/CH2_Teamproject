@@ -14,6 +14,7 @@ protected:
 	int Exp;
 
 public:
+	void Attack(ACharacter* Target) override;
 	void UseItem();
 	void LevelUp();
 };
