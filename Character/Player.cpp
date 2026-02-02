@@ -15,9 +15,29 @@ FDamageResult APlayer::Attack(ACharacter* Target)
 	{
 		AttackMessage = "의 돌팔매가 이마에 명중합니다!";
 	}
-	cout << Name << AttackMessage << endl << "데미지: " << result.Damage << endl;
-	cout << Target->GetName() << "의 HP: " << Target->GetHp() << endl << endl;
+	result.PrintMessage(AttackMessage);
 	return result;
+}
+
+void APlayer::UseSkill(ACharacter* Target)
+{
+	if (Stat.Mp < 10)
+	{
+		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
+		return;
+	}
+
+	Stat.Mp -= 10;
+	string AttackMessage = "이 강력한 공격을 준비합니다.";
+	int Damage = 2 * Stat.Atk;
+	int FinalDamage = Target->TakeDamage(Damage);
+
+	FDamageResult result;
+	result.Damage = FinalDamage;
+	result.bCritical = false;
+	result.Attacker = this;
+	result.Target = Target;
+	result.PrintMessage(AttackMessage);
 }
 
 void APlayer::UseItem()

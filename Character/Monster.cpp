@@ -12,7 +12,30 @@ FDamageResult AMonster::Attack(ACharacter* Target)
 	{
 		AttackMessage = "의 공격이 어쩌다 명중합니다.";
 	}
-	cout << Name << AttackMessage << endl << "데미지: " << result.Damage << endl;
-	cout << Target->GetName() << "의 HP: " << Target->GetHp() << endl << endl;
+	result.PrintMessage(AttackMessage);
 	return result;
+}
+void AMonster::UseSkill(ACharacter* Target)
+{
+	if (Stat.Mp < 10)
+	{
+		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
+		return;
+	}
+
+	Stat.Mp -= 10;
+	string AttackMessage = "이 흡혈을 시도합니다.";
+	int Damage = Stat.Atk;
+	int FinalDamage = Target->TakeDamage(Damage);
+	Stat.Hp = std::min(Stat.Hp + FinalDamage, Stat.MaxHp);
+
+	FDamageResult result;
+	result.Damage = FinalDamage;
+	result.bCritical = false;
+	result.Attacker = this;
+	result.Target = Target;
+	result.PrintMessage(AttackMessage);
+	this->PrintName();
+	cout << "남은 HP: " << GetHp()<<"/"<<GetMaxHp() << endl;
+
 }

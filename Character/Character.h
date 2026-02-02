@@ -31,11 +31,16 @@ struct FUnitStat
 		this->Critical = Critical;
 	}
 };
-
+class ACharacter;
 struct FDamageResult
 {
 	int Damage;
 	bool bCritical = false;
+
+	ACharacter* Attacker;
+	ACharacter* Target;
+
+	void PrintMessage(const string& AttackMessage);
 
 };
 
@@ -51,12 +56,15 @@ protected:
 	FUnitStat Stat;
 
 public:
+	void PrintMessage(ACharacter* Target);
 	virtual FDamageResult Attack(ACharacter* Target);
 	int TakeDamage(int DamageAmount);
+	void PrintName() { cout << "[" << Name << "]"; }
 	string GetName() { return Name; }
 	int GetHp() { return Stat.Hp; }
+	int GetMaxHp() const { return Stat.MaxHp; }
 	bool IsDead() { return Stat.Hp <= 0; }
-	
+	virtual void UseSkill(ACharacter* Target) = 0;
 private:
 	int GetRandomInt();
 };

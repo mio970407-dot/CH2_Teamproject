@@ -26,6 +26,17 @@ int ACharacter::GetRandomInt()
 	return dis(gen);
 }
 
+void FDamageResult::PrintMessage(const string& AttackMessage)
+{
+	cout << endl;
+	Attacker->PrintName();
+	cout << AttackMessage << '\n';
+
+	Target->PrintName();
+	cout << "받은 데미지: " << Damage << " -> 남은 HP: " << Target->GetHp() << "/" << Target->GetMaxHp() << endl;
+
+}
+
 FDamageResult ACharacter::Attack(ACharacter* Target)
 {
 	int Damage = Stat.Atk;
@@ -40,6 +51,9 @@ FDamageResult ACharacter::Attack(ACharacter* Target)
 	FDamageResult result;
 	result.Damage = FinalDamage;
 	result.bCritical = bCritical;
+	result.Attacker = this;
+	result.Target = Target;
+
 	return result;
 }
 
@@ -47,7 +61,7 @@ int ACharacter::TakeDamage(int DamageAmount)
 {
 	DamageAmount = DamageAmount - Stat.Def;
 	DamageAmount = std::max(DamageAmount, 0);
-	
+
 	Stat.Hp -= DamageAmount;
 	Stat.Hp = std::max(Stat.Hp, 0);
 	return DamageAmount;

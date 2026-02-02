@@ -16,14 +16,15 @@ int main()
 
 	cout << "===  데스매치 시작!  ===" << endl;
 	Sleep(1000);
-
+	Player->UseSkill(Monster);
+	Monster->UseSkill(Player);
 	while (!Player->IsDead() && !Monster->IsDead())
 	{
 		Player->Attack(Monster);
 
 		if (Monster->IsDead())
 		{
-			cout << "적이 쓰러졌습니다! 승리!" << endl;
+			cout << endl << "적이 쓰러졌습니다! 승리!" << endl;
 			break;
 		}
 
@@ -33,7 +34,7 @@ int main()
 
 		if (Player->IsDead())
 		{
-			cout << "플레이어가 쓰러졌습니다... 패배..." << endl;
+			cout << endl << "플레이어가 쓰러졌습니다... 패배..." << endl;
 			break;
 		}
 
