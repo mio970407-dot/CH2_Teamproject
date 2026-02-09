@@ -28,7 +28,6 @@ int ACharacter::GetRandomInt()
 
 void FDamageResult::PrintMessage(const string& AttackMessage)
 {
-	cout << endl;
 	Attacker->PrintName();
 	cout << AttackMessage << '\n';
 
@@ -65,4 +64,27 @@ int ACharacter::TakeDamage(int DamageAmount)
 	Stat.Hp -= DamageAmount;
 	Stat.Hp = std::max(Stat.Hp, 0);
 	return DamageAmount;
+}
+
+void ACharacter::PlayTurn(ACharacter* Target)
+{
+	const int AttackRate = 70;
+	const int SkillMp = 10;
+
+	bool bAttack = GetRandomInt() < AttackRate;
+
+	if (bAttack)
+	{
+		Attack(Target);
+		return;
+	}
+
+	if (Stat.Mp < SkillMp)
+	{
+		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
+		Attack(Target);
+		return;
+	}
+		UseSkill(Target);
+
 }

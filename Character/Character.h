@@ -65,6 +65,8 @@ public:
 	int GetMaxHp() const { return Stat.MaxHp; }
 	bool IsDead() { return Stat.Hp <= 0; }
 	virtual void UseSkill(ACharacter* Target) = 0;
+
+	void PlayTurn(ACharacter* Target);
 private:
 	int GetRandomInt();
 };

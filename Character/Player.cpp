@@ -21,11 +21,6 @@ FDamageResult APlayer::Attack(ACharacter* Target)
 
 void APlayer::UseSkill(ACharacter* Target)
 {
-	if (Stat.Mp < 10)
-	{
-		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
-		return;
-	}
 
 	Stat.Mp -= 10;
 	string AttackMessage = "이 강력한 공격을 준비합니다.";

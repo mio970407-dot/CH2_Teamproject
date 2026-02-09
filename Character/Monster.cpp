@@ -17,11 +17,6 @@ FDamageResult AMonster::Attack(ACharacter* Target)
 }
 void AMonster::UseSkill(ACharacter* Target)
 {
-	if (Stat.Mp < 10)
-	{
-		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
-		return;
-	}
 
 	Stat.Mp -= 10;
 	string AttackMessage = "이 흡혈을 시도합니다.";
