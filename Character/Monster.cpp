@@ -31,6 +31,6 @@ void AMonster::UseSkill(ACharacter* Target)
 	result.Target = Target;
 	result.PrintMessage(AttackMessage);
 	this->PrintName();
-	cout << "남은 HP: " << GetHp()<<"/"<<GetMaxHp() << endl;
+	cout << "회복한 HP: " << FinalDamage << endl;
 
 }

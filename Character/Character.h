@@ -63,10 +63,13 @@ public:
 	string GetName() { return Name; }
 	int GetHp() { return Stat.Hp; }
 	int GetMaxHp() const { return Stat.MaxHp; }
-	bool IsDead() { return Stat.Hp <= 0; }
+	int GetMp() { return Stat.Mp; }
+	int GetMaxMp() { return Stat.MaxMp; }
+	bool IsDead() const { return Stat.Hp <= 0; }
 	virtual void UseSkill(ACharacter* Target) = 0;
 
 	void PlayTurn(ACharacter* Target);
+	void ShowStat();
 private:
 	int GetRandomInt();
 };

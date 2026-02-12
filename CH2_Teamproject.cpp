@@ -10,39 +10,60 @@ void WaitForPlayerInput()
 	cout << endl;
 }
 
+bool BattleTurn(ACharacter* Attacker, ACharacter* Defender)
+{
+	//공격>생존확인>죽으면 브레이크, 살면 다음턴으로
+	//공격
+	Attacker->PlayTurn(Defender);
+	cout << endl;
+	Attacker->ShowStat();
+	Defender->ShowStat();
+	WaitForPlayerInput();
+
+	//생존여부:죽었다면
+	if (Defender->IsDead())
+	{
+		cout << Defender->GetName() << "이 쓰러졌다!" << endl;
+	}
+	return Defender->IsDead();
+}
+
+class BattleManager
+{
+
+
+};
+
 int main()
 {
 	ACharacter* Player = new APlayer("작은 다윗", { 120,20,60,10,10 });
 	ACharacter* Monster =new AMonster("거대한 골리앗",{ 300,20,30,10,10 });
 
+	BattleManager* Manager = new BattleManager();
+
+	Manager->RunBattle();
+	//
 	cout << "===  데스매치 시작!  ===" << endl;
 	WaitForPlayerInput();
 
-	while (!Player->IsDead() && !Monster->IsDead())
+	while (true)
 	{
-		Player->PlayTurn(Monster);
-
-		if (Monster->IsDead())
+		if (BattleTurn(Player, Monster) == true)
 		{
-			cout << endl << "적이 쓰러졌습니다! 승리!" << endl;
 			break;
 		}
-		WaitForPlayerInput();
 
-		Monster->PlayTurn(Player);
-
-		if (Player->IsDead())
+		if (BattleTurn(Monster, Player) == true)
 		{
-			cout << endl << "플레이어가 쓰러졌습니다... 패배..." << endl;
 			break;
 		}
-		WaitForPlayerInput();
 	}
-
+	WaitForPlayerInput();
+	//
 	delete Player;
 	delete Monster;
 
-	WaitForPlayerInput();
-
+	Manager->WaitForPlayerInput();
+	delete Manager;
 	return 0;
 }

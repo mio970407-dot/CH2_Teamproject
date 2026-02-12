@@ -32,7 +32,7 @@ void FDamageResult::PrintMessage(const string& AttackMessage)
 	cout << AttackMessage << '\n';
 
 	Target->PrintName();
-	cout << "받은 데미지: " << Damage << " -> 남은 HP: " << Target->GetHp() << "/" << Target->GetMaxHp() << endl;
+	cout << "받은 데미지: " << Damage << endl;
 
 }
 
@@ -78,13 +78,18 @@ void ACharacter::PlayTurn(ACharacter* Target)
 		Attack(Target);
 		return;
 	}
-
+	
 	if (Stat.Mp < SkillMp)
 	{
 		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
 		Attack(Target);
 		return;
 	}
-		UseSkill(Target);
+	
+	UseSkill(Target);
+}
 
+void ACharacter::ShowStat()
+{
+	cout << "[" << GetName() << "] HP: " << GetHp() << " / " << GetMaxHp() << " | MP: " << GetMp() << " / " << GetMaxMp() << endl;
 }
