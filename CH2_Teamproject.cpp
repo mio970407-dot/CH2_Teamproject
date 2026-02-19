@@ -9,17 +9,10 @@
 
 int main()
 {
-	ACharacter* Player = new APlayer("작은 다윗", { 120,20,60,10,10 });
-	ACharacter* Monster =new AMonster("거대한 골리앗",{ 300,20,30,10,10 });
+	unique_ptr<ACharacter> Player = make_unique<APlayer>("작은 다윗", FUnitStat(120,20,60,10,10));
+	unique_ptr<ACharacter> Monster = make_unique<AMonster>("거대한 골리앗", FUnitStat(300,20,30,10,10));
+	auto Manager = make_unique<ABattleManager>();
 
-	ABattleManager* Manager = new ABattleManager();
-
-	Manager->RunBattle(Player, Monster);
-
-	delete Player;
-	delete Monster;
-
-	Manager->WaitForPlayerInput();
-	delete Manager;
+	Manager->RunBattle(Player.get(), Monster.get());
 	return 0;
 }
