@@ -68,25 +68,14 @@ int ACharacter::TakeDamage(int DamageAmount)
 
 void ACharacter::PlayTurn(ACharacter* Target)
 {
-	const int AttackRate = 70;
-	const int SkillMp = 10;
-
-	bool bAttack = GetRandomInt() < AttackRate;
-
-	if (bAttack)
+	if (GetRandomInt() < 50)
 	{
 		Attack(Target);
-		return;
 	}
-	
-	if (Stat.Mp < SkillMp)
+	else
 	{
-		cout << "MP가 모자라 스킬을 사용할 수 없습니다." << endl;
-		Attack(Target);
-		return;
+		UseSkill(Target);
 	}
-	
-	UseSkill(Target);
 }
 
 void ACharacter::ShowStat()
