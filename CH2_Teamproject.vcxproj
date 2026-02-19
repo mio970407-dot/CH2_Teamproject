@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BattleManager.cpp" />
     <ClCompile Include="CH2_Teamproject.cpp" />
     <ClCompile Include="Character\Character.cpp" />
     <ClCompile Include="Character\Monster.cpp">
@@ -279,6 +280,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleManager.h" />
     <ClInclude Include="Character\Character.h" />
     <ClInclude Include="Character\Monster.h" />
     <ClInclude Include="Character\Player.h" />
