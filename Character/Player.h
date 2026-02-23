@@ -3,6 +3,7 @@
 #include "Character.h"
 
 using namespace std;
+class USkill;
 
 class APlayer : public ACharacter
 {

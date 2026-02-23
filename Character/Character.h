@@ -65,11 +65,13 @@ public:
 	int GetMaxHp() const { return Stat.MaxHp; }
 	int GetMp() { return Stat.Mp; }
 	int GetMaxMp() { return Stat.MaxMp; }
+	int GetAtk() { return Stat.Atk; }
+	int GetCritical() { return Stat.Critical; }
 	bool IsDead() const { return Stat.Hp <= 0; }
 	virtual void UseSkill(ACharacter* Target) = 0;
 
 	void PlayTurn(ACharacter* Target);
 	void ShowStat();
-private:
 	int GetRandomInt();
+	void Heal(int HealAmount);
 };

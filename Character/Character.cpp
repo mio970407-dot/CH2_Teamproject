@@ -82,3 +82,8 @@ void ACharacter::ShowStat()
 {
 	cout << "[" << GetName() << "] HP: " << GetHp() << " / " << GetMaxHp() << " | MP: " << GetMp() << " / " << GetMaxMp() << endl;
 }
+
+void ACharacter::Heal(int HealAmount)
+{
+	Stat.Hp = std::min(Stat.Hp + HealAmount, Stat.MaxHp);
+}
