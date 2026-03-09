@@ -3,7 +3,7 @@
 #include <string>
 
 UPlayerDoubleSkill::UPlayerDoubleSkill(ACharacter* NewOwner)
-	: USkill(NewOwner,10)
+	: USkill(NewOwner,10,"연속 공격")
 {
 
 }
@@ -25,10 +25,10 @@ void UPlayerDoubleSkill::Play(ACharacter* Target)
 	result.Attacker = Owner;
 	result.Target = Target;
 
-	string AttackMessage = "의 연속공격, 첫 타!";
+	string AttackMessage = "의 연속 공격, 첫 타!";
 	if (result.bCritical)
 	{
-		AttackMessage = "의 연속공격, 첫 타! 급소에 맞았다.";
+		AttackMessage = "의 연속 공격, 첫 타! 급소에 맞았다.";
 	}
 	result.PrintMessage(AttackMessage);
 

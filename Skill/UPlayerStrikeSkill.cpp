@@ -4,7 +4,7 @@
 
 
 UPlayerStrikeSkill::UPlayerStrikeSkill(ACharacter* NewOwner)
-	: USkill(NewOwner,10)
+	: USkill(NewOwner,10,"강력한 공격")
 {
 
 }

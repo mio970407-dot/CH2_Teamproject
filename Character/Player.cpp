@@ -19,32 +19,28 @@ APlayer::~APlayer()
 
 }
 
-FDamageResult APlayer::Attack(ACharacter* Target)
+void APlayer::PlayTurn(ACharacter* Target)
 {
-	FDamageResult result = ACharacter::Attack(Target);
-	string AttackMessage = "이 침착하게 공격합니다.";
-	if (result.bCritical)
+	cout << "=== 스킬 목록 ===" << endl;
+	for (int i = 0; i < Skills.size(); i++)
 	{
-		AttackMessage = "의 돌팔매가 이마에 명중합니다!";
+		cout << i + 1 << ". " << Skills[i]->GetName() << endl;
 	}
-	result.PrintMessage(AttackMessage);
-	return result;
-}
 
-void APlayer::UseSkill(ACharacter* Target)
-{
+	int choice = 0;
+	while (choice < 1 || choice > Skills.size())
+	{
+		cout << "스킬을 선택하세요: ";
+		cin >> choice;
+		cout << endl;
 
-	Stat.Mp -= 10;
-	string AttackMessage = "이 강력한 공격을 준비합니다.";
-	int Damage = 2 * Stat.Atk;
-	int FinalDamage = Target->TakeDamage(Damage);
-
-	FDamageResult result;
-	result.Damage = FinalDamage;
-	result.bCritical = false;
-	result.Attacker = this;
-	result.Target = Target;
-	result.PrintMessage(AttackMessage);
+		if (choice < 1 || choice > Skills.size())
+		{
+			cout << "잘못된 입력입니다!" << endl;
+		}
+	}
+	
+	Skills[choice - 1]->Play(Target);
 }
 
 void APlayer::UseItem()

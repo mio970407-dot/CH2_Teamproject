@@ -3,7 +3,7 @@
 #include <string>
 
 UMonsterAttackSkill::UMonsterAttackSkill(ACharacter* NewOwner)
-	:USkill(NewOwner,0)
+	:USkill(NewOwner,0,"슬렁슬렁 공격")
 {
 
 }

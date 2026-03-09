@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "../Skill/Skill.h"
 
 using namespace std;
 
@@ -33,8 +34,7 @@ struct FUnitStat
 		this->Critical = Critical;
 	}
 };
-class ACharacter;
-class USkill;
+
 
 struct FDamageResult
 {
@@ -62,7 +62,6 @@ protected:
 
 public:
 	void PrintMessage(ACharacter* Target);
-	virtual FDamageResult Attack(ACharacter* Target);
 	int TakeDamage(int DamageAmount);
 	void PrintName() { cout << "[" << Name << "]"; }
 	string GetName() { return Name; }
@@ -73,12 +72,11 @@ public:
 	int GetAtk() { return Stat.Atk; }
 	int GetCritical() { return Stat.Critical; }
 	bool IsDead() const { return Stat.Hp <= 0; }
-	virtual void UseSkill(ACharacter* Target) = 0;
-	bool HasEnoughMp(int Cost);
-	void ConsumeMp(int Cost);
+	//bool HasEnoughMp(int Cost);
+	//void ConsumeMp(int Cost);
 
-	void PlayTurn(ACharacter* Target);
+	virtual void PlayTurn(ACharacter* Target);
 	void ShowStat();
-	int GetRandomInt();
+	int GetRandomInt(int Max = 100);
 	void Heal(int HealAmount);
 };

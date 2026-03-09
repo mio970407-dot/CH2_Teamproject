@@ -4,7 +4,7 @@
 
 
 UPlayerAttackSkill::UPlayerAttackSkill(ACharacter* NewOwner)
-	: USkill(NewOwner,0)
+	: USkill(NewOwner,0,"돌팔매")
 {
 
 }

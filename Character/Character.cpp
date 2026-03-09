@@ -18,11 +18,11 @@ ACharacter::~ACharacter()
 
 }
 
-int ACharacter::GetRandomInt()
+int ACharacter::GetRandomInt(int Max)
 {
 	static std::random_device rd;
 	static std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dis(0, 99);
+	std::uniform_int_distribution<int> dis(0, Max-1);
 
 	return dis(gen);
 }
@@ -37,25 +37,6 @@ void FDamageResult::PrintMessage(const string& AttackMessage)
 
 }
 
-FDamageResult ACharacter::Attack(ACharacter* Target)
-{
-	int Damage = Stat.Atk;
-	bool bCritical = GetRandomInt() < Stat.Critical;
-
-	if (bCritical)
-	{
-		Damage = static_cast<int>(Damage * 1.5);
-	}
-
-	int FinalDamage = Target->TakeDamage(Damage);
-	FDamageResult result;
-	result.Damage = FinalDamage;
-	result.bCritical = bCritical;
-	result.Attacker = this;
-	result.Target = Target;
-
-	return result;
-}
 
 int ACharacter::TakeDamage(int DamageAmount)
 {
@@ -67,26 +48,19 @@ int ACharacter::TakeDamage(int DamageAmount)
 	return DamageAmount;
 }
 
-bool HasEnoughMP(int Cost)
-{
+//bool HasEnoughMP(int Cost)
+//{
+//
+//}
 
-}
-
-void ConSumeMp(int Cost)
-{
-
-}
+//void ConSumeMp(int Cost)
+//{
+//
+//}
 
 void ACharacter::PlayTurn(ACharacter* Target)
 {
-	if (GetRandomInt() < 50)
-	{
-		Attack(Target);
-	}
-	else
-	{
-		UseSkill(Target);
-	}
+
 }
 
 void ACharacter::ShowStat()
