@@ -1,9 +1,19 @@
 ﻿#include "Monster.h"
+#include "../Skill/UMonsterAttackSkill.h"
+#include "../Skill/UMonsterDrainSkill.h"
 
 AMonster::AMonster(const string& NewName, const FUnitStat& NewStat)
 	: ACharacter(NewName, NewStat)
 {
+	Skills.push_back(make_unique<UMonsterAttackSkill>(this));
+	Skills.push_back(make_unique<UMonsterDrainSkill>(this));
+
 }
+AMonster::~AMonster()
+{
+
+}
+
 FDamageResult AMonster::Attack(ACharacter* Target)
 {
 	FDamageResult result = ACharacter::Attack(Target);

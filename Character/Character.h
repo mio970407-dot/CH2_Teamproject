@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -32,6 +34,8 @@ struct FUnitStat
 	}
 };
 class ACharacter;
+class USkill;
+
 struct FDamageResult
 {
 	int Damage;
@@ -49,11 +53,12 @@ class ACharacter
 {
 public:
 	ACharacter(const string& NewName, const FUnitStat& NewStat);
-    ~ACharacter();
+    virtual ~ACharacter();
 
 protected:
 	string Name;
 	FUnitStat Stat;
+	vector<unique_ptr<USkill>> Skills;
 
 public:
 	void PrintMessage(ACharacter* Target);

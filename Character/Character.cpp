@@ -15,6 +15,7 @@ ACharacter::ACharacter(const string& NewName, const FUnitStat& UnitStat)
 ACharacter::~ACharacter()
 {
 	cout << "[소멸] " << Name << "이 전장에서 물러납니다." << endl;
+
 }
 
 int ACharacter::GetRandomInt()
