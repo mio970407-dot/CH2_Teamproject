@@ -69,6 +69,8 @@ public:
 	int GetCritical() { return Stat.Critical; }
 	bool IsDead() const { return Stat.Hp <= 0; }
 	virtual void UseSkill(ACharacter* Target) = 0;
+	bool HasEnoughMp(int Cost);
+	void ConsumeMp(int Cost);
 
 	void PlayTurn(ACharacter* Target);
 	void ShowStat();

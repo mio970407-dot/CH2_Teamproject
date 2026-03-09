@@ -4,7 +4,7 @@
 
 
 UPlayerStrikeSkill::UPlayerStrikeSkill(ACharacter* NewOwner)
-	: USkill(NewOwner)
+	: USkill(NewOwner,10)
 {
 
 }

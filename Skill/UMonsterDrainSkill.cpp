@@ -3,7 +3,7 @@
 #include <string>
 
 UMonsterDrainSkill::UMonsterDrainSkill(ACharacter* NewOwner)
-	: USkill(NewOwner)
+	: USkill(NewOwner,10)
 {
 
 }

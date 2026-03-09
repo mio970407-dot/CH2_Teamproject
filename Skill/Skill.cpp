@@ -2,7 +2,8 @@
 class ACharacter;
 
 
-USkill::USkill(ACharacter* NewOwner)
+USkill::USkill(ACharacter* NewOwner, int NewMpCost)
 {
-	Owner = NewOwner;  
+	Owner = NewOwner;
+	MpCost = NewMpCost;
 }

@@ -4,7 +4,7 @@
 
 
 UPlayerAttackSkill::UPlayerAttackSkill(ACharacter* NewOwner)
-	: USkill(NewOwner)
+	: USkill(NewOwner,0)
 {
 
 }

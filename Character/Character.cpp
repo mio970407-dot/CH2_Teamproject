@@ -66,6 +66,16 @@ int ACharacter::TakeDamage(int DamageAmount)
 	return DamageAmount;
 }
 
+bool HasEnoughMP(int Cost)
+{
+
+}
+
+void ConSumeMp(int Cost)
+{
+
+}
+
 void ACharacter::PlayTurn(ACharacter* Target)
 {
 	if (GetRandomInt() < 50)

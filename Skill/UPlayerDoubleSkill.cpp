@@ -3,7 +3,7 @@
 #include <string>
 
 UPlayerDoubleSkill::UPlayerDoubleSkill(ACharacter* NewOwner)
-	: USkill(NewOwner)
+	: USkill(NewOwner,10)
 {
 
 }
